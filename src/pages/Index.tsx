@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../lib/firebase';
@@ -25,6 +24,12 @@ interface WritingData {
   description?: string;
 }
 
+interface BookData {
+  name: string;
+  author: string;
+  link?: string;
+}
+
 interface PersonalInfo {
   id: string;
   introduction: string;
@@ -34,7 +39,7 @@ interface PersonalInfo {
   twitter?: string;
   github?: string;
   interests: string;
-  books: {name: string, author: string, link?: string}[];
+  books: BookData[];
 }
 
 const Index = () => {
@@ -114,9 +119,9 @@ const Index = () => {
     github: "yourusername",
     interests: "I'm fascinated by [interest 1], [interest 2], and [interest 3]. In my free time, I enjoy [hobby 1], [hobby 2], and [hobby 3]. I'm currently learning [something you're learning].",
     books: [
-      {name: "Book Title One", author: "Author Name"},
-      {name: "Book Title Two", author: "Author Name"},
-      {name: "Book Title Three", author: "Author Name"}
+      {name: "Book Title One", author: "Author Name", link: "https://example.com/book1"},
+      {name: "Book Title Two", author: "Author Name", link: "https://example.com/book2"},
+      {name: "Book Title Three", author: "Author Name", link: "https://example.com/book3"}
     ]
   };
 

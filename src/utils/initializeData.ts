@@ -16,6 +16,12 @@ interface WritingData {
   description?: string;
 }
 
+interface BookData {
+  name: string;
+  author: string;
+  link?: string;
+}
+
 const defaultProjects: ProjectData[] = [
   {
     title: "Project One",
