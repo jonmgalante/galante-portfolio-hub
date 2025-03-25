@@ -5,6 +5,7 @@ import { db } from '../lib/firebase';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { toast } from "../hooks/use-toast";
+import { initializeDefaultData } from '../utils/initializeData';
 
 interface ProjectData {
   id: string;
@@ -21,6 +22,9 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
+        // First ensure we have default data
+        await initializeDefaultData();
+        
         const projectsCollection = collection(db, 'projects');
         const projectSnapshot = await getDocs(projectsCollection);
         const projectList = projectSnapshot.docs.map(doc => ({

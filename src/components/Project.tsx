@@ -11,7 +11,7 @@ interface ProjectProps {
 
 const Project: React.FC<ProjectProps> = ({ title, description, link, year, id }) => {
   return (
-    <div className="mb-4" key={id}>
+    <div className="mb-4" id={id}>
       <span className="text-gray-500 mr-2">{year}</span>
       {link ? (
         <a href={link} className="font-medium" target="_blank" rel="noopener noreferrer">

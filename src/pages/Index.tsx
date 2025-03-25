@@ -7,6 +7,7 @@ import Footer from '../components/Footer';
 import Project from '../components/Project';
 import Writing from '../components/Writing';
 import { toast } from "../hooks/use-toast";
+import { initializeDefaultData } from '../utils/initializeData';
 
 interface ProjectData {
   id: string;
@@ -41,9 +42,25 @@ const Index = () => {
   const [writings, setWritings] = useState<WritingData[]>([]);
   const [personalInfo, setPersonalInfo] = useState<PersonalInfo | null>(null);
   const [loading, setLoading] = useState(true);
+  const [dataInitialized, setDataInitialized] = useState(false);
+
+  useEffect(() => {
+    const initData = async () => {
+      try {
+        await initializeDefaultData();
+        setDataInitialized(true);
+      } catch (error) {
+        console.error("Error initializing data: ", error);
+      }
+    };
+
+    initData();
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
+      if (!dataInitialized) return;
+      
       try {
         // Fetch projects
         const projectsCollection = collection(db, 'projects');
@@ -86,7 +103,7 @@ const Index = () => {
     };
 
     fetchData();
-  }, []);
+  }, [dataInitialized]);
   
   // Default personal info if none is fetched from Firebase
   const defaultInfo = {
