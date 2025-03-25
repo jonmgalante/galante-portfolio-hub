@@ -4,10 +4,18 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import WritingItem from '../components/Writing';
+import { toast } from "../hooks/use-toast";
+
+interface WritingData {
+  id: string;
+  title: string;
+  date: string;
+  link?: string;
+  description?: string;
+}
 
 const Writing = () => {
-  const [writings, setWritings] = useState<any[]>([]);
+  const [writings, setWritings] = useState<WritingData[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -18,10 +26,15 @@ const Writing = () => {
         const writingList = writingSnapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data()
-        }));
+        })) as WritingData[];
         setWritings(writingList);
       } catch (error) {
         console.error("Error fetching writings: ", error);
+        toast({
+          title: "Error",
+          description: "Failed to load articles. Please try again later.",
+          variant: "destructive",
+        });
       } finally {
         setLoading(false);
       }

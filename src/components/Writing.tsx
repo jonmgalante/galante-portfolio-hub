@@ -6,11 +6,12 @@ interface WritingProps {
   date: string;
   link?: string;
   description?: string;
+  id?: string;
 }
 
-const Writing: React.FC<WritingProps> = ({ title, date, link, description }) => {
+const Writing: React.FC<WritingProps> = ({ title, date, link, description, id }) => {
   return (
-    <div className="mb-4">
+    <div className="mb-4" key={id}>
       <span className="text-gray-500 mr-2">{date}</span>
       {link ? (
         <a href={link} className="font-medium" target="_blank" rel="noopener noreferrer">

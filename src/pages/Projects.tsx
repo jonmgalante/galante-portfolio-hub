@@ -4,10 +4,18 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Project from '../components/Project';
+import { toast } from "../hooks/use-toast";
+
+interface ProjectData {
+  id: string;
+  title: string;
+  description: string;
+  link?: string;
+  year: string;
+}
 
 const Projects = () => {
-  const [projects, setProjects] = useState<any[]>([]);
+  const [projects, setProjects] = useState<ProjectData[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -18,10 +26,15 @@ const Projects = () => {
         const projectList = projectSnapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data()
-        }));
+        })) as ProjectData[];
         setProjects(projectList);
       } catch (error) {
         console.error("Error fetching projects: ", error);
+        toast({
+          title: "Error",
+          description: "Failed to load projects. Please try again later.",
+          variant: "destructive",
+        });
       } finally {
         setLoading(false);
       }
