@@ -1,4 +1,3 @@
-
 import { collection, getDocs, addDoc } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 
@@ -25,7 +24,6 @@ interface BookData {
 interface CompanyData {
   name: string;
   role: string;
-  period: string;
   description?: string;
 }
 
@@ -75,19 +73,16 @@ const defaultCompanies: CompanyData[] = [
   {
     name: "Tech Innovators Inc.",
     role: "Senior Developer",
-    period: "2021-2023",
     description: "Led development of key products and mentored junior team members"
   },
   {
     name: "Digital Solutions Ltd.",
     role: "Software Engineer",
-    period: "2019-2021",
     description: "Built scalable web applications and improved system architecture"
   },
   {
     name: "Future Systems",
     role: "Junior Developer",
-    period: "2017-2019",
     description: "Contributed to front-end development and participated in agile teams"
   }
 ];

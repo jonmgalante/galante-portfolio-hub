@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../lib/firebase';
@@ -30,7 +29,6 @@ interface CompanyData {
   id: string;
   name: string;
   role: string;
-  period: string;
   description?: string;
 }
 
@@ -218,7 +216,6 @@ const Index = () => {
                   id={company.id}
                   name={company.name}
                   role={company.role}
-                  period={company.period}
                   description={company.description}
                 />
               ))
@@ -227,19 +224,16 @@ const Index = () => {
                 <Company
                   name="Tech Innovators Inc."
                   role="Senior Developer"
-                  period="2021-2023"
                   description="Led development of key products and mentored junior team members"
                 />
                 <Company
                   name="Digital Solutions Ltd."
                   role="Software Engineer"
-                  period="2019-2021"
                   description="Built scalable web applications and improved system architecture"
                 />
                 <Company
                   name="Future Systems"
                   role="Junior Developer"
-                  period="2017-2019"
                   description="Contributed to front-end development and participated in agile teams"
                 />
               </>
