@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../lib/firebase';
@@ -5,6 +6,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Project from '../components/Project';
 import Writing from '../components/Writing';
+import Company from '../components/Company';
 import { toast } from "../hooks/use-toast";
 import { initializeDefaultData } from '../utils/initializeData';
 
@@ -24,6 +26,14 @@ interface WritingData {
   description?: string;
 }
 
+interface CompanyData {
+  id: string;
+  name: string;
+  role: string;
+  period: string;
+  description?: string;
+}
+
 interface BookData {
   name: string;
   author: string;
@@ -34,7 +44,6 @@ interface PersonalInfo {
   id: string;
   introduction: string;
   experience: string;
-  education: string;
   email: string;
   twitter?: string;
   github?: string;
@@ -45,6 +54,7 @@ interface PersonalInfo {
 const Index = () => {
   const [projects, setProjects] = useState<ProjectData[]>([]);
   const [writings, setWritings] = useState<WritingData[]>([]);
+  const [companies, setCompanies] = useState<CompanyData[]>([]);
   const [personalInfo, setPersonalInfo] = useState<PersonalInfo | null>(null);
   const [loading, setLoading] = useState(true);
   const [dataInitialized, setDataInitialized] = useState(false);
@@ -84,6 +94,15 @@ const Index = () => {
           ...doc.data()
         })) as WritingData[];
         setWritings(writingList);
+        
+        // Fetch companies
+        const companiesCollection = collection(db, 'companies');
+        const companiesSnapshot = await getDocs(companiesCollection);
+        const companiesList = companiesSnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        })) as CompanyData[];
+        setCompanies(companiesList);
         
         // Fetch personal info
         const personalInfoCollection = collection(db, 'personalInfo');
@@ -183,6 +202,45 @@ const Index = () => {
                   description="An earlier project with significant impact"
                   link="https://example.com/project3"
                   year="2021"
+                />
+              </>
+            )}
+          </section>
+          
+          <section className="section mt-8">
+            <h2 className="text-xl font-serif mb-4">Companies</h2>
+            {loading ? (
+              <p>Loading companies...</p>
+            ) : companies.length > 0 ? (
+              companies.map((company) => (
+                <Company
+                  key={company.id}
+                  id={company.id}
+                  name={company.name}
+                  role={company.role}
+                  period={company.period}
+                  description={company.description}
+                />
+              ))
+            ) : (
+              <>
+                <Company
+                  name="Tech Innovators Inc."
+                  role="Senior Developer"
+                  period="2021-2023"
+                  description="Led development of key products and mentored junior team members"
+                />
+                <Company
+                  name="Digital Solutions Ltd."
+                  role="Software Engineer"
+                  period="2019-2021"
+                  description="Built scalable web applications and improved system architecture"
+                />
+                <Company
+                  name="Future Systems"
+                  role="Junior Developer"
+                  period="2017-2019"
+                  description="Contributed to front-end development and participated in agile teams"
                 />
               </>
             )}

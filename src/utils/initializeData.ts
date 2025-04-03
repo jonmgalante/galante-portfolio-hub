@@ -22,6 +22,13 @@ interface BookData {
   link?: string;
 }
 
+interface CompanyData {
+  name: string;
+  role: string;
+  period: string;
+  description?: string;
+}
+
 const defaultProjects: ProjectData[] = [
   {
     title: "Project One",
@@ -61,6 +68,27 @@ const defaultWritings: WritingData[] = [
     date: "November 2022",
     link: "https://example.com/article3",
     description: "The subject matter of this writing"
+  }
+];
+
+const defaultCompanies: CompanyData[] = [
+  {
+    name: "Tech Innovators Inc.",
+    role: "Senior Developer",
+    period: "2021-2023",
+    description: "Led development of key products and mentored junior team members"
+  },
+  {
+    name: "Digital Solutions Ltd.",
+    role: "Software Engineer",
+    period: "2019-2021",
+    description: "Built scalable web applications and improved system architecture"
+  },
+  {
+    name: "Future Systems",
+    role: "Junior Developer",
+    period: "2017-2019",
+    description: "Contributed to front-end development and participated in agile teams"
   }
 ];
 
@@ -104,6 +132,19 @@ export const initializeDefaultData = async () => {
         await addDoc(writingsCollection, writing);
       }
       console.log("Default writings added successfully!");
+    }
+    
+    // Check if companies exist
+    const companiesCollection = collection(db, 'companies');
+    const companiesSnapshot = await getDocs(companiesCollection);
+    
+    // If no companies exist, add the default ones
+    if (companiesSnapshot.empty) {
+      console.log("Adding default companies to Firebase...");
+      for (const company of defaultCompanies) {
+        await addDoc(companiesCollection, company);
+      }
+      console.log("Default companies added successfully!");
     }
 
     // Check if personal info exists
