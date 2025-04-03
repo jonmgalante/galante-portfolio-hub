@@ -1,13 +1,17 @@
+
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Project from '../components/Project';
-import Writing from '../components/Writing';
-import Company from '../components/Company';
 import { toast } from "../hooks/use-toast";
 import { initializeDefaultData } from '../utils/initializeData';
+import PersonalInfo from '../components/PersonalInfo';
+import ProjectsSection from '../components/ProjectsSection';
+import CompaniesSection from '../components/CompaniesSection';
+import WritingsSection from '../components/WritingsSection';
+import InterestsSection from '../components/InterestsSection';
+import ReadingSection from '../components/ReadingSection';
 
 interface ProjectData {
   id: string;
@@ -56,6 +60,21 @@ const Index = () => {
   const [personalInfo, setPersonalInfo] = useState<PersonalInfo | null>(null);
   const [loading, setLoading] = useState(true);
   const [dataInitialized, setDataInitialized] = useState(false);
+
+  // Default personal info if none is fetched from Firebase
+  const defaultInfo = {
+    introduction: "Hello! I'm Jon Galante. I'm a [your profession/title]. I'm interested in [your interests], [another interest], and [another interest]. I [brief description of what you do or your current role].",
+    experience: "Previously, I [previous experience]. I studied [your education] at [institution].",
+    email: "your-email@example.com",
+    twitter: "yourusername",
+    github: "yourusername",
+    interests: "I'm fascinated by [interest 1], [interest 2], and [interest 3]. In my free time, I enjoy [hobby 1], [hobby 2], and [hobby 3]. I'm currently learning [something you're learning].",
+    books: [
+      {name: "Book Title One", author: "Author Name", link: "https://example.com/book1"},
+      {name: "Book Title Two", author: "Author Name", link: "https://example.com/book2"},
+      {name: "Book Title Three", author: "Author Name", link: "https://example.com/book3"}
+    ]
+  };
 
   useEffect(() => {
     const initData = async () => {
@@ -126,21 +145,6 @@ const Index = () => {
 
     fetchData();
   }, [dataInitialized]);
-  
-  // Default personal info if none is fetched from Firebase
-  const defaultInfo = {
-    introduction: "Hello! I'm Jon Galante. I'm a [your profession/title]. I'm interested in [your interests], [another interest], and [another interest]. I [brief description of what you do or your current role].",
-    experience: "Previously, I [previous experience]. I studied [your education] at [institution].",
-    email: "your-email@example.com",
-    twitter: "yourusername",
-    github: "yourusername",
-    interests: "I'm fascinated by [interest 1], [interest 2], and [interest 3]. In my free time, I enjoy [hobby 1], [hobby 2], and [hobby 3]. I'm currently learning [something you're learning].",
-    books: [
-      {name: "Book Title One", author: "Author Name", link: "https://example.com/book1"},
-      {name: "Book Title Two", author: "Author Name", link: "https://example.com/book2"},
-      {name: "Book Title Three", author: "Author Name", link: "https://example.com/book3"}
-    ]
-  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -148,162 +152,27 @@ const Index = () => {
       
       <main className="flex-grow">
         <div className="container py-8">
-          <section className="section">
-            <p>{personalInfo?.introduction || defaultInfo.introduction}</p>
-            <p>{personalInfo?.experience || defaultInfo.experience}</p>
-            <p>
-              You can reach me at <a href={`mailto:${personalInfo?.email || defaultInfo.email}`}>{personalInfo?.email || defaultInfo.email}</a>. 
-              {personalInfo?.twitter && (
-                <> I'm also on <a href={`https://twitter.com/${personalInfo.twitter}`} target="_blank" rel="noopener noreferrer">Twitter</a> and </>
-              )}
-              {personalInfo?.github && (
-                <a href={`https://github.com/${personalInfo.github}`} target="_blank" rel="noopener noreferrer">GitHub</a>
-              )}
-              {!personalInfo?.twitter && !personalInfo?.github && (
-                <> I'm also on <a href={`https://twitter.com/${defaultInfo.twitter}`} target="_blank" rel="noopener noreferrer">Twitter</a> and 
-                <a href={`https://github.com/${defaultInfo.github}`} target="_blank" rel="noopener noreferrer"> GitHub</a>.</>
-              )}
-            </p>
-          </section>
+          <PersonalInfo
+            introduction={personalInfo?.introduction || defaultInfo.introduction}
+            experience={personalInfo?.experience || defaultInfo.experience}
+            email={personalInfo?.email || defaultInfo.email}
+            twitter={personalInfo?.twitter || defaultInfo.twitter}
+            github={personalInfo?.github || defaultInfo.github}
+          />
 
-          <section className="section mt-8">
-            <h2 className="text-xl font-serif mb-4">Selected Projects</h2>
-            {loading ? (
-              <p>Loading projects...</p>
-            ) : projects.length > 0 ? (
-              projects.map((project) => (
-                <Project
-                  key={project.id}
-                  id={project.id}
-                  title={project.title}
-                  description={project.description}
-                  link={project.link}
-                  year={project.year}
-                />
-              ))
-            ) : (
-              <>
-                <Project
-                  title="Project One"
-                  description="A brief description of this project"
-                  link="https://example.com/project1"
-                  year="2023"
-                />
-                <Project
-                  title="Project Two"
-                  description="Another interesting project I worked on"
-                  link="https://example.com/project2"
-                  year="2022"
-                />
-                <Project
-                  title="Project Three"
-                  description="An earlier project with significant impact"
-                  link="https://example.com/project3"
-                  year="2021"
-                />
-              </>
-            )}
-          </section>
+          <ProjectsSection projects={projects} loading={loading} />
           
-          <section className="section mt-8">
-            <h2 className="text-xl font-serif mb-4">Companies</h2>
-            {loading ? (
-              <p>Loading companies...</p>
-            ) : companies.length > 0 ? (
-              companies.map((company) => (
-                <Company
-                  key={company.id}
-                  id={company.id}
-                  name={company.name}
-                  role={company.role}
-                  description={company.description}
-                />
-              ))
-            ) : (
-              <>
-                <Company
-                  name="Tech Innovators Inc."
-                  role="Senior Developer"
-                  description="Led development of key products and mentored junior team members"
-                />
-                <Company
-                  name="Digital Solutions Ltd."
-                  role="Software Engineer"
-                  description="Built scalable web applications and improved system architecture"
-                />
-                <Company
-                  name="Future Systems"
-                  role="Junior Developer"
-                  description="Contributed to front-end development and participated in agile teams"
-                />
-              </>
-            )}
-          </section>
+          <CompaniesSection companies={companies} loading={loading} />
 
-          <section className="section mt-8">
-            <h2 className="text-xl font-serif mb-4">Writing</h2>
-            {loading ? (
-              <p>Loading writings...</p>
-            ) : writings.length > 0 ? (
-              writings.map((writing) => (
-                <Writing
-                  key={writing.id}
-                  id={writing.id}
-                  title={writing.title}
-                  date={writing.date}
-                  link={writing.link}
-                  description={writing.description}
-                />
-              ))
-            ) : (
-              <>
-                <Writing
-                  title="Article Title One"
-                  date="June 2023"
-                  link="https://example.com/article1"
-                  description="Brief description of this article"
-                />
-                <Writing
-                  title="Article Title Two"
-                  date="March 2023"
-                  link="https://example.com/article2"
-                  description="What this piece is about"
-                />
-                <Writing
-                  title="Article Title Three"
-                  date="November 2022"
-                  link="https://example.com/article3"
-                  description="The subject matter of this writing"
-                />
-              </>
-            )}
-          </section>
+          <WritingsSection writings={writings} loading={loading} />
 
-          <section className="section mt-8">
-            <h2 className="text-xl font-serif mb-4">Interests</h2>
-            <p>
-              {personalInfo?.interests || defaultInfo.interests}
-            </p>
-          </section>
+          <InterestsSection 
+            interests={personalInfo?.interests || defaultInfo.interests} 
+          />
 
-          <section className="section mt-8">
-            <h2 className="text-xl font-serif mb-4">Reading</h2>
-            <p>Some books I've enjoyed recently:</p>
-            <ul className="mt-2">
-              {(personalInfo?.books || defaultInfo.books).map((book, index) => (
-                <li key={index} className="mb-1">
-                  {book.link ? (
-                    <a href={book.link} className="text-blue-600 hover:text-blue-800" target="_blank" rel="noopener noreferrer">
-                      {book.name}
-                    </a>
-                  ) : (
-                    <span>{book.name}</span>
-                  )}
-                  {book.author && <span> by {book.author}</span>}
-                </li>
-              ))}
-            </ul>
-          </section>
+          <ReadingSection 
+            books={personalInfo?.books || defaultInfo.books} 
+          />
         </div>
       </main>
       
