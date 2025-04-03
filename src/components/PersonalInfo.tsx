@@ -22,7 +22,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
       <p>{experience}</p>
       <p>
         A detailed resume is available <a 
-          href="/resume.pdf" 
+          href="/lovable-uploads/38bd5626-770e-4b87-b22c-6b11fa1dab81.png" 
           className="text-blue-600 hover:underline" 
           target="_blank" 
           rel="noopener noreferrer"
