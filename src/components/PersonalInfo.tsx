@@ -20,7 +20,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
     <section className="section">
       <p>{introduction}</p>
       <p>{experience}</p>
-      <p className="mt-4 italic">
+      <p>
         A detailed resume is available <a 
           href="/resume.pdf" 
           className="text-blue-600 hover:underline" 
