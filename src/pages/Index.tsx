@@ -61,14 +61,14 @@ const Index = () => {
   const [loading, setLoading] = useState(true);
   const [dataInitialized, setDataInitialized] = useState(false);
 
-  // Default personal info if none is fetched from Firebase
+  // Updated default personal info based on the resume
   const defaultInfo = {
-    introduction: "Hello! I'm Jon Galante. I'm a [your profession/title]. I'm interested in [your interests], [another interest], and [another interest]. I [brief description of what you do or your current role].",
-    experience: "Previously, I [previous experience]. I studied [your education] at [institution].",
-    email: "your-email@example.com",
-    twitter: "yourusername",
-    github: "yourusername",
-    interests: "I'm fascinated by [interest 1], [interest 2], and [interest 3]. In my free time, I enjoy [hobby 1], [hobby 2], and [hobby 3]. I'm currently learning [something you're learning].",
+    introduction: "Hello! I'm Jon Galante, a B2B Sales Leader with 10+ years of experience and a proven track record in PropTech, FinTech, DevOps, & Healthcare. I specialize in 'O to 1' and '1 to 10' motions, establishing product-market fit and scaling go-to-market strategies.",
+    experience: "Previously, I was the Sales hire at Knotch, led GTM strategy to 4x revenue from $5MM to $20MM over 4 years. I've built and managed teams of 5-20 reps that doubled revenue from $5MM to $10MM across multiple roles at enterprises like Epic Systems, IBM, and AMZ.",
+    email: "jongalante@gmail.com",
+    twitter: "",
+    github: "",
+    interests: "When I'm not driving revenue growth or building high-performing sales teams, I enjoy exploring my personal interests and hobbies.",
     books: [
       {name: "Book Title One", author: "Author Name", link: "https://example.com/book1"},
       {name: "Book Title Two", author: "Author Name", link: "https://example.com/book2"},

@@ -37,8 +37,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
           <a href={`https://github.com/${github}`} target="_blank" rel="noopener noreferrer">GitHub</a>
         )}
         {!twitter && !github && (
-          <> I'm also on <a href={`https://twitter.com/example`} target="_blank" rel="noopener noreferrer">Twitter</a> and 
-          <a href={`https://github.com/example`} target="_blank" rel="noopener noreferrer"> GitHub</a>.</>
+          <> I'm also on <a href="https://www.linkedin.com/in/jon-galante" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</>
         )}
       </p>
     </section>
