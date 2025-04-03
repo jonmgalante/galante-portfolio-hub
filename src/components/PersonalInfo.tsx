@@ -1,12 +1,6 @@
 
 import React from 'react';
 
-interface BookData {
-  name: string;
-  author: string;
-  link?: string;
-}
-
 interface PersonalInfoProps {
   introduction: string;
   experience: string;
@@ -26,6 +20,14 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
     <section className="section">
       <p>{introduction}</p>
       <p>{experience}</p>
+      <p className="mt-4 italic">
+        A detailed resume is available <a 
+          href="/resume.pdf" 
+          className="text-blue-600 hover:underline" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >here</a>.
+      </p>
       <p>
         You can reach me at <a href={`mailto:${email}`}>{email}</a>. 
         {twitter && (
