@@ -89,8 +89,7 @@ const defaultCompanies: CompanyData[] = [
 
 const defaultPersonalInfo = {
   introduction: "Thanks for visiting! \nI'm Jon, nice to meet you :) \nI've helped build some b2b startups, and along the way had lots of fun building sales teams, closing big deals with enterprises like Microsoft and Amazon, and helping some great founders build out GTM.   \nMy wife Juliet and I live in NYC. Hit me up for coffee at jonmgalante@gmail.com or book time here.",
-  experience: "Previously, I worked at tech companies building products used by millions of people. I studied Computer Science at a leading university.",
-  email: "jon@example.com",
+  email: "jongalante@gmail.com",
   twitter: "jongalante",
   github: "jongalante",
   interests: "I'm fascinated by artificial intelligence, quantum computing, and space exploration. In my free time, I enjoy hiking, reading, and playing chess. I'm currently learning about climate science and sustainable technologies.",

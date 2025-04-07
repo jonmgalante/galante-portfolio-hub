@@ -63,7 +63,6 @@ const Index = () => {
   // Updated default personal info based on the resume
   const defaultInfo = {
     introduction: "Thanks for visiting! \nI'm Jon, nice to meet you :) \nI've helped build some b2b startups, and along the way had lots of fun building sales teams, closing big deals with enterprises like Microsoft and Amazon, and helping some great founders build out GTM.   \nMy wife Juliet and I live in NYC. Hit me up for coffee at jonmgalante@gmail.com or book time here.",
-    experience: "Previously, I was the Sales hire at Knotch, led GTM strategy to 4x revenue from $5MM to $20MM over 4 years. I've built and managed teams of 5-20 reps that doubled revenue from $5MM to $10MM across multiple roles at enterprises like Epic Systems, IBM, and AMZ.",
     email: "jongalante@gmail.com",
     twitter: "",
     github: "",

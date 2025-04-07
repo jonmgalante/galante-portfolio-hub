@@ -22,7 +22,6 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
           <span key={index} className="block">{line}</span>
         ))}
       </p>
-      <p>{experience}</p>
       <p>
         A detailed resume is available <a 
           href="/lovable-uploads/38bd5626-770e-4b87-b22c-6b11fa1dab81.png" 
@@ -33,12 +32,6 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
       </p>
       <p>
         You can reach me at <a href={`mailto:${email}`}>{email}</a>. 
-        {twitter && (
-          <> I'm also on <a href={`https://twitter.com/${twitter}`} target="_blank" rel="noopener noreferrer">Twitter</a> and </>
-        )}
-        {github && (
-          <a href={`https://github.com/${github}`} target="_blank" rel="noopener noreferrer">GitHub</a>
-        )}
         {!twitter && !github && (
           <> I'm also on <a href="https://www.linkedin.com/in/jon-galante" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</>
         )}
