@@ -10,16 +10,27 @@ interface ProjectProps {
 }
 
 const Project: React.FC<ProjectProps> = ({ title, description, link, year, id }) => {
+  const projectDescription = description 
+    ? ` -- ${description}`
+    : '';
+
   return (
-    <div className="mb-2" id={id}>
+    <div className="mb-4 flex flex-col sm:flex-row sm:items-start" id={id}>
       {link ? (
-        <a href={link} className="font-medium" target="_blank" rel="noopener noreferrer">
-          {title}
-        </a>
+        <>
+          <a 
+            href={link} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="hover:underline font-medium mr-1"
+          >
+            {title}
+          </a>
+          <span className="font-medium">{projectDescription}</span>
+        </>
       ) : (
-        <span className="font-medium">{title}</span>
+        <span className="font-medium">{title}{projectDescription}</span>
       )}
-      {description && <span className="text-gray-700 ml-2">— {description}</span>}
     </div>
   );
 };
