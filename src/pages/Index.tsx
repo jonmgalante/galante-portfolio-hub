@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../lib/firebase';
@@ -44,7 +45,6 @@ interface BookData {
 interface PersonalInfo {
   id: string;
   introduction: string;
-  experience: string;
   email: string;
   twitter?: string;
   github?: string;
@@ -147,7 +147,6 @@ const Index = () => {
         <div className="container py-8">
           <PersonalInfo
             introduction={personalInfo?.introduction || defaultInfo.introduction}
-            experience={personalInfo?.experience || defaultInfo.experience}
             email={personalInfo?.email || defaultInfo.email}
             twitter={personalInfo?.twitter || defaultInfo.twitter}
             github={personalInfo?.github || defaultInfo.github}
