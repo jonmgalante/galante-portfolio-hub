@@ -3,7 +3,7 @@ import React from 'react';
 import Company from './Company';
 
 interface CompanyData {
-  id: string;
+  id?: string;
   name: string;
   role: string;
   description?: string;
