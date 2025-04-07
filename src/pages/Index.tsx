@@ -65,7 +65,7 @@ const Index = () => {
     email: "jongalante@gmail.com",
     twitter: "",
     github: "",
-    interests: "When I'm not driving revenue growth or building high-performing sales teams, I enjoy exploring my personal interests and hobbies.",
+    interests: "A few of my favorite photos from travel over the years",
     books: [
       {name: "Book Title One", author: "Author Name", link: "https://example.com/book1"},
       {name: "Book Title Two", author: "Author Name", link: "https://example.com/book2"},
