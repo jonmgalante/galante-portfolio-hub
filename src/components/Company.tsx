@@ -10,23 +10,26 @@ interface CompanyProps {
 }
 
 const Company: React.FC<CompanyProps> = ({ id, name, role, description, url }) => {
-  const companyText = description 
-    ? `${name} -- ${role} -- ${description}` 
-    : `${name} -- ${role}`;
+  const companyDescription = description 
+    ? ` -- ${role} -- ${description}`
+    : ` -- ${role}`;
 
   return (
     <div className="mb-4 flex flex-col sm:flex-row sm:items-start" id={id}>
       {url ? (
-        <a 
-          href={url} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="hover:underline font-medium"
-        >
-          {companyText}
-        </a>
+        <>
+          <a 
+            href={url} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="hover:underline font-medium"
+          >
+            {name}
+          </a>
+          <span className="font-medium">{companyDescription}</span>
+        </>
       ) : (
-        <span className="font-medium">{companyText}</span>
+        <span className="font-medium">{name}{companyDescription}</span>
       )}
     </div>
   );
