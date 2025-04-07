@@ -17,8 +17,12 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
   github
 }) => {
   return (
-    <section className="section">
-      <p>{introduction}</p>
+    <section className="section space-y-4">
+      <div className="text-lg leading-relaxed">
+        {introduction.split('\n').map((line, index) => (
+          <p key={index}>{line}</p>
+        ))}
+      </div>
       <p>{experience}</p>
       <p>
         A detailed resume is available <a 
