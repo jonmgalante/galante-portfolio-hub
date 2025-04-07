@@ -20,11 +20,9 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
           <span key={index} className="block">{line}</span>
         ))}
       </p>
-      <p>
-        My wife Juliet and I live in NYC. Hit me up for coffee at {email} or book time here.
-      </p>
     </section>
   );
 };
 
 export default PersonalInfo;
+
