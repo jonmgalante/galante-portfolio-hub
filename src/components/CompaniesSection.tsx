@@ -16,15 +16,15 @@ interface CompaniesSectionProps {
 }
 
 const CompaniesSection: React.FC<CompaniesSectionProps> = ({ companies, loading }) => {
-  // Default companies with the format from the resume
+  // Default companies with the updated URLs
   const defaultCompanies = [
     { name: "Pathstream", role: "frontline workforce training", url: "https://pathstream.com" },
-    { name: "Octane", role: "usage-based billing", description: "acquired by Stripe", url: "https://octane.so" },
-    { name: "CRS", role: "credit data API", url: "https://crs.com" },
-    { name: "Aikito", role: "CRE financing", url: "https://aikito.com" },
+    { name: "Octane", role: "usage-based billing", description: "acquired by Stripe", url: "https://stripe.com" },
+    { name: "CRS", role: "credit data API", url: "https://crscreditapi.com/" },
+    { name: "Aikito", role: "CRE financing", url: "https://aikito.co" },
     { name: "Sharebite", role: "employee meals", url: "https://sharebite.com" },
     { name: "Upflex", role: "flex office SaaS", url: "https://upflex.com" },
-    { name: "Feedback Loop", role: "user research", description: "acquired by DISQO", url: "https://feedbackloop.com" },
+    { name: "Feedback Loop", role: "user research", description: "acquired by DISQO", url: "https://www.disqo.com/" },
     { name: "Sidewalk Labs", role: "smart cities", url: "https://sidewalklabs.com" },
     { name: "Knotel", role: "flex office for enterprise", description: "acquired by Newmark", url: "https://knotel.com" },
     { name: "F1 Health IT", role: "IT staffing", url: "https://f1healthit.com" },
