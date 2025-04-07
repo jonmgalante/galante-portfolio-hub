@@ -37,10 +37,12 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects, loading }) 
           <Project
             title="SouvieShelf"
             description="your personal museum from a life well-traveled"
+            link="https://souvieshelf.com/auth"
           />
           <Project
             title="Christmas Album"
             description="recorded for Juliet (password protected haha)"
+            link="https://averybearychristmas.com/"
           />
         </>
       )}
