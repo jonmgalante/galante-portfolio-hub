@@ -18,7 +18,7 @@ interface ProjectsSectionProps {
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects, loading }) => {
   return (
     <section className="section mt-8">
-      <h2 className="text-xl font-serif mb-4">Selected Projects</h2>
+      <h2 className="text-xl font-serif mb-4">Projects</h2>
       {loading ? (
         <p>Loading projects...</p>
       ) : projects.length > 0 ? (
@@ -35,22 +35,12 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects, loading }) 
       ) : (
         <>
           <Project
-            title="Project One"
-            description="A brief description of this project"
-            link="https://example.com/project1"
-            year="2023"
+            title="SouvieShelf"
+            description="your personal museum from a life well-traveled"
           />
           <Project
-            title="Project Two"
-            description="Another interesting project I worked on"
-            link="https://example.com/project2"
-            year="2022"
-          />
-          <Project
-            title="Project Three"
-            description="An earlier project with significant impact"
-            link="https://example.com/project3"
-            year="2021"
+            title="Christmas Album"
+            description="recorded for Juliet (password protected haha)"
           />
         </>
       )}
