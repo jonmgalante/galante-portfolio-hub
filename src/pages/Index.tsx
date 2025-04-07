@@ -60,9 +60,8 @@ const Index = () => {
   const [loading, setLoading] = useState(true);
   const [dataInitialized, setDataInitialized] = useState(false);
 
-  // Updated default personal info based on the resume
   const defaultInfo = {
-    introduction: "Thanks for visiting! \nI'm Jon, nice to meet you :) \nI've helped build some b2b startups, and along the way had lots of fun building sales teams, closing big deals with enterprises like Microsoft and Amazon, and helping some great founders build out GTM.   \nMy wife Juliet and I live in NYC. Hit me up for coffee at jonmgalante@gmail.com or book time here.",
+    introduction: "Thanks for visiting! \n\nI'm Jon, nice to meet you :) \n\nI've helped build some b2b startups, and along the way had lots of fun building sales teams, closing big deals with enterprises like Microsoft and Amazon, and helping some great founders build out GTM. \n\nMy wife Juliet and I live in NYC. Hit me up for coffee at jongalante@gmail.com or book time here.",
     email: "jongalante@gmail.com",
     twitter: "",
     github: "",
@@ -92,7 +91,6 @@ const Index = () => {
       if (!dataInitialized) return;
       
       try {
-        // Fetch projects
         const projectsCollection = collection(db, 'projects');
         const projectSnapshot = await getDocs(projectsCollection);
         const projectList = projectSnapshot.docs.map(doc => ({
@@ -101,7 +99,6 @@ const Index = () => {
         })) as ProjectData[];
         setProjects(projectList);
 
-        // Fetch writings
         const writingsCollection = collection(db, 'writings');
         const writingSnapshot = await getDocs(writingsCollection);
         const writingList = writingSnapshot.docs.map(doc => ({
@@ -110,7 +107,6 @@ const Index = () => {
         })) as WritingData[];
         setWritings(writingList);
         
-        // Fetch companies
         const companiesCollection = collection(db, 'companies');
         const companiesSnapshot = await getDocs(companiesCollection);
         const companiesList = companiesSnapshot.docs.map(doc => ({
@@ -119,7 +115,6 @@ const Index = () => {
         })) as CompanyData[];
         setCompanies(companiesList);
         
-        // Fetch personal info
         const personalInfoCollection = collection(db, 'personalInfo');
         const personalInfoSnapshot = await getDocs(personalInfoCollection);
         if (!personalInfoSnapshot.empty) {
