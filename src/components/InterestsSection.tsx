@@ -1,13 +1,6 @@
 
 import React from 'react';
-import { 
-  Carousel, 
-  CarouselContent, 
-  CarouselItem, 
-  CarouselNext, 
-  CarouselPrevious 
-} from './ui/carousel';
-import { Image } from 'lucide-react';
+import { Grid2X2 } from 'lucide-react';
 
 interface InterestsSectionProps {
   interests: string;
@@ -48,29 +41,19 @@ const InterestsSection: React.FC<InterestsSectionProps> = ({ interests }) => {
       <h2 className="text-xl font-serif mb-4">Travel</h2>
       <p className="mb-4">{interests}</p>
       
-      <div className="mt-6 mb-6">
-        <Carousel className="w-full max-w-3xl mx-auto">
-          <CarouselContent>
-            {travelPhotos.map((photo, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
-                  <div className="overflow-hidden rounded-md aspect-[4/3] relative group">
-                    <img 
-                      src={photo.src} 
-                      alt={photo.alt}
-                      className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
-                    />
-                    <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-2 text-sm opacity-0 group-hover:opacity-100 transition-opacity">
-                      {photo.location}
-                    </div>
-                  </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="left-0" />
-          <CarouselNext className="right-0" />
-        </Carousel>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6">
+        {travelPhotos.map((photo, index) => (
+          <div key={index} className="overflow-hidden rounded-md aspect-[4/3] relative group">
+            <img 
+              src={photo.src} 
+              alt={photo.alt}
+              className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-2 text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+              {photo.location}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
