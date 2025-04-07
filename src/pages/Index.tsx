@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../lib/firebase';
@@ -157,12 +158,12 @@ const Index = () => {
 
           <WritingsSection writings={writings} loading={loading} />
 
-          <InterestsSection 
-            interests={personalInfo?.interests || defaultInfo.interests} 
-          />
-
           <ReadingSection 
             books={personalInfo?.books || defaultInfo.books} 
+          />
+
+          <InterestsSection 
+            interests={personalInfo?.interests || defaultInfo.interests} 
           />
         </div>
       </main>

@@ -8,7 +8,7 @@ interface InterestsSectionProps {
 const InterestsSection: React.FC<InterestsSectionProps> = ({ interests }) => {
   return (
     <section className="section mt-8">
-      <h2 className="text-xl font-serif mb-4">Interests</h2>
+      <h2 className="text-xl font-serif mb-4">Travel</h2>
       <p>{interests}</p>
       <div className="mt-4">
         <h3 className="font-medium mb-2">Ask Me About...</h3>
