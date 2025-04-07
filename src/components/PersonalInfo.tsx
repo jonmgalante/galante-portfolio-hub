@@ -18,7 +18,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
 }) => {
   return (
     <section className="section space-y-4">
-      <p className="text-base text-muted-foreground">{introduction.split('\n').map((line, index) => (
+      <p>{introduction.split('\n').map((line, index) => (
           <span key={index} className="block">{line}</span>
         ))}
       </p>
