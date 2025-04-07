@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../lib/firebase';
+
+import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { toast } from "../hooks/use-toast";
-import { initializeDefaultData } from '../utils/initializeData';
 import PersonalInfo from '../components/PersonalInfo';
 import ProjectsSection from '../components/ProjectsSection';
 import CompaniesSection from '../components/CompaniesSection';
@@ -41,24 +38,8 @@ interface BookData {
   link?: string;
 }
 
-interface PersonalInfo {
-  id: string;
-  introduction: string;
-  email: string;
-  twitter?: string;
-  github?: string;
-  interests: string;
-  books: BookData[];
-}
-
 const Index = () => {
-  const [projects, setProjects] = useState<ProjectData[]>([]);
-  const [writings, setWritings] = useState<WritingData[]>([]);
-  const [companies, setCompanies] = useState<CompanyData[]>([]);
-  const [personalInfo, setPersonalInfo] = useState<PersonalInfo | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [dataInitialized, setDataInitialized] = useState(false);
-
+  // Static default data
   const defaultInfo = {
     introduction: "Thanks for visiting! \n\nI'm Jon, nice to meet you :) \n\nI've helped build some b2b startups, and along the way had lots of fun building sales teams, closing big deals with enterprises like Microsoft and Amazon, and helping some great founders build out GTM. \n\nMy wife Juliet and I live in NYC. Hit me up for coffee at jongalante@gmail.com or book time here.",
     email: "jongalante@gmail.com",
@@ -72,71 +53,74 @@ const Index = () => {
     ]
   };
 
-  useEffect(() => {
-    const initData = async () => {
-      try {
-        await initializeDefaultData();
-        setDataInitialized(true);
-      } catch (error) {
-        console.error("Error initializing data: ", error);
-      }
-    };
+  const defaultProjects: ProjectData[] = [
+    {
+      id: "1",
+      title: "Project One",
+      description: "A brief description of this project",
+      link: "https://example.com/project1",
+      year: "2023"
+    },
+    {
+      id: "2",
+      title: "Project Two",
+      description: "Another interesting project I worked on",
+      link: "https://example.com/project2",
+      year: "2022"
+    },
+    {
+      id: "3",
+      title: "Project Three",
+      description: "An earlier project with significant impact",
+      link: "https://example.com/project3",
+      year: "2021"
+    }
+  ];
 
-    initData();
-  }, []);
+  const defaultWritings: WritingData[] = [
+    {
+      id: "1",
+      title: "Article Title One",
+      date: "June 2023",
+      link: "https://example.com/article1",
+      description: "Brief description of this article"
+    },
+    {
+      id: "2",
+      title: "Article Title Two",
+      date: "March 2023",
+      link: "https://example.com/article2",
+      description: "What this piece is about"
+    },
+    {
+      id: "3",
+      title: "Article Title Three",
+      date: "November 2022",
+      link: "https://example.com/article3",
+      description: "The subject matter of this writing"
+    }
+  ];
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if (!dataInitialized) return;
-      
-      try {
-        const projectsCollection = collection(db, 'projects');
-        const projectSnapshot = await getDocs(projectsCollection);
-        const projectList = projectSnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        })) as ProjectData[];
-        setProjects(projectList);
-
-        const writingsCollection = collection(db, 'writings');
-        const writingSnapshot = await getDocs(writingsCollection);
-        const writingList = writingSnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        })) as WritingData[];
-        setWritings(writingList);
-        
-        const companiesCollection = collection(db, 'companies');
-        const companiesSnapshot = await getDocs(companiesCollection);
-        const companiesList = companiesSnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        })) as CompanyData[];
-        setCompanies(companiesList);
-        
-        const personalInfoCollection = collection(db, 'personalInfo');
-        const personalInfoSnapshot = await getDocs(personalInfoCollection);
-        if (!personalInfoSnapshot.empty) {
-          const personalInfoData = {
-            id: personalInfoSnapshot.docs[0].id,
-            ...personalInfoSnapshot.docs[0].data()
-          } as PersonalInfo;
-          setPersonalInfo(personalInfoData);
-        }
-      } catch (error) {
-        console.error("Error fetching data: ", error);
-        toast({
-          title: "Error",
-          description: "Failed to load data. Please try again later.",
-          variant: "destructive",
-        });
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [dataInitialized]);
+  const defaultCompanies: CompanyData[] = [
+    {
+      id: "1",
+      name: "Tech Innovators Inc.",
+      role: "Senior Developer",
+      description: "Led development of key products and mentored junior team members"
+    },
+    {
+      id: "2",
+      name: "Digital Solutions Ltd.",
+      role: "Software Engineer",
+      description: "Built scalable web applications and improved system architecture"
+    },
+    {
+      id: "3",
+      name: "Future Systems",
+      role: "Junior Developer",
+      description: "Contributed to front-end development and participated in agile teams"
+    }
+  ];
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -145,24 +129,24 @@ const Index = () => {
       <main className="flex-grow">
         <div className="container py-8">
           <PersonalInfo
-            introduction={personalInfo?.introduction || defaultInfo.introduction}
-            email={personalInfo?.email || defaultInfo.email}
-            twitter={personalInfo?.twitter || defaultInfo.twitter}
-            github={personalInfo?.github || defaultInfo.github}
+            introduction={defaultInfo.introduction}
+            email={defaultInfo.email}
+            twitter={defaultInfo.twitter}
+            github={defaultInfo.github}
           />
 
-          <ProjectsSection projects={projects} loading={loading} />
+          <ProjectsSection projects={defaultProjects} loading={false} />
           
-          <CompaniesSection companies={companies} loading={loading} />
+          <CompaniesSection companies={defaultCompanies} loading={false} />
 
-          <WritingsSection writings={writings} loading={loading} />
+          <WritingsSection writings={defaultWritings} loading={false} />
 
           <InterestsSection 
-            interests={personalInfo?.interests || defaultInfo.interests} 
+            interests={defaultInfo.interests} 
           />
 
           <ReadingSection 
-            books={personalInfo?.books || defaultInfo.books} 
+            books={defaultInfo.books} 
           />
         </div>
       </main>
