@@ -53,7 +53,7 @@ interface PersonalInfo {
 }
 
 const defaultInfo = {
-  introduction: "Thanks for visiting! I'm Jon, nice to meet you :) \n\nI've helped build some b2b startups, and along the way had lots of fun building sales teams, closing big deals with enterprises like Microsoft and Amazon, and helping some great founders build out GTM.",
+  introduction: "Thanks for visiting! I'm Jon, nice to meet you :)",
   email: "jongalante@gmail.com",
   twitter: "",
   github: "",
