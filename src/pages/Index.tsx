@@ -9,7 +9,9 @@ import PersonalInfo from '../components/PersonalInfo';
 import ProjectsSection from '../components/ProjectsSection';
 import CompaniesSection from '../components/CompaniesSection';
 import WritingsSection from '../components/WritingsSection';
+import InterestsSection from '../components/InterestsSection';
 import ReadingSection from '../components/ReadingSection';
+import ArtSection from '../components/ArtSection';
 
 interface ProjectData {
   id: string;
@@ -157,6 +159,12 @@ const Index = () => {
           <WritingsSection writings={writings} loading={loading} />
 
           <ReadingSection />
+
+          <InterestsSection 
+            interests={personalInfo?.interests || defaultInfo.interests} 
+          />
+          
+          <ArtSection />
         </div>
       </main>
       
