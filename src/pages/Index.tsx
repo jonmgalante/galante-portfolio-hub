@@ -158,9 +158,7 @@ const Index = () => {
 
           <WritingsSection writings={writings} loading={loading} />
 
-          <ReadingSection 
-            books={personalInfo?.books || defaultInfo.books} 
-          />
+          <ReadingSection />
 
           <InterestsSection 
             interests={personalInfo?.interests || defaultInfo.interests} 
