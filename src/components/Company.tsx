@@ -22,17 +22,18 @@ const Company: React.FC<CompanyProps> = ({ id, name, role, description, url }) =
             href={url} 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="hover:underline font-medium mr-1"
+            className="hover:underline mr-1"
           >
             {name}
           </a>
-          <span className="font-medium">{companyDescription}</span>
+          <span>{companyDescription}</span>
         </>
       ) : (
-        <span className="font-medium">{name}{companyDescription}</span>
+        <span>{name}{companyDescription}</span>
       )}
     </div>
   );
 };
 
 export default Company;
+

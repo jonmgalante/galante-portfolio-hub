@@ -22,17 +22,18 @@ const Project: React.FC<ProjectProps> = ({ title, description, link, year, id })
             href={link} 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="hover:underline font-medium mr-1"
+            className="hover:underline mr-1"
           >
             {title}
           </a>
-          <span className="font-medium">{projectDescription}</span>
+          <span>{projectDescription}</span>
         </>
       ) : (
-        <span className="font-medium">{title}{projectDescription}</span>
+        <span>{title}{projectDescription}</span>
       )}
     </div>
   );
 };
 
 export default Project;
+
