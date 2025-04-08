@@ -1,11 +1,21 @@
 
 import React from 'react';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 const Header = () => {
   return (
     <header className="pt-8 pb-4">
       <div className="container">
-        <h1 className="text-3xl font-serif mb-2">Jon Galante</h1>
+        <div className="flex justify-between items-center">
+          <h1 className="text-3xl font-serif mb-2">Jon Galante</h1>
+          <Avatar className="h-16 w-16 border-2 border-gray-200">
+            <AvatarImage 
+              src="/lovable-uploads/82feb5d2-121b-4cd0-ad7a-229af1d2fad1.png" 
+              alt="Jon Galante" 
+            />
+            <AvatarFallback>JG</AvatarFallback>
+          </Avatar>
+        </div>
       </div>
     </header>
   );
