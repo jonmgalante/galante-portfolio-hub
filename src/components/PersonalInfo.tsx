@@ -35,3 +35,4 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
 };
 
 export default PersonalInfo;
+
