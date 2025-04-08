@@ -1,17 +1,7 @@
 
 import React from 'react';
 
-interface BookData {
-  name: string;
-  author: string;
-  link?: string;
-}
-
-interface ReadingSectionProps {
-  books?: BookData[];
-}
-
-const ReadingSection: React.FC<ReadingSectionProps> = () => {
+const ReadingSection: React.FC = () => {
   return (
     <section className="section mt-8">
       <h2 className="text-xl font-serif mb-4">Reading</h2>
