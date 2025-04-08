@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Linkedin } from 'lucide-react';
+import { LinkedinIcon } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -15,7 +15,7 @@ const Footer = () => {
           rel="noopener noreferrer"
           className="hover:text-blue-600 transition-colors"
         >
-          <Linkedin size={20} />
+          <LinkedinIcon size={20} />
         </a>
       </div>
     </footer>
