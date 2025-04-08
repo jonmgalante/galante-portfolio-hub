@@ -8,9 +8,9 @@ import { initializeDefaultData } from '../utils/initializeData';
 import PersonalInfo from '../components/PersonalInfo';
 import ProjectsSection from '../components/ProjectsSection';
 import CompaniesSection from '../components/CompaniesSection';
-import ReadingSection from '../components/ReadingSection';
 import WritingsSection from '../components/WritingsSection';
 import InterestsSection from '../components/InterestsSection';
+import ReadingSection from '../components/ReadingSection';
 import ArtSection from '../components/ArtSection';
 
 interface ProjectData {
@@ -156,7 +156,15 @@ const Index = () => {
           
           <CompaniesSection companies={companies} loading={loading} />
 
+          <WritingsSection writings={writings} loading={loading} />
+
           <ReadingSection />
+
+          <InterestsSection 
+            interests={personalInfo?.interests || defaultInfo.interests} 
+          />
+          
+          <ArtSection />
         </div>
       </main>
       
