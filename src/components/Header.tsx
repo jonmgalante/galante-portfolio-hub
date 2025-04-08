@@ -8,11 +8,11 @@ const Header = () => {
       <div className="container">
         <div className="flex justify-between items-center">
           <h1 className="text-3xl font-serif mb-2">Jon Galante</h1>
-          <div className="w-16 h-16 overflow-hidden">
+          <div className="max-w-[16rem] overflow-hidden">
             <img 
               src="/lovable-uploads/d18cf311-09ff-40c4-b74d-6d0fa1de54db.png" 
               alt="Jon Galante" 
-              className="w-full h-full object-cover"
+              className="w-full h-auto object-contain"
             />
           </div>
         </div>
@@ -22,3 +22,4 @@ const Header = () => {
 };
 
 export default Header;
+
