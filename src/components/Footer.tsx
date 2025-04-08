@@ -13,7 +13,7 @@ const Footer = () => {
           href="https://www.linkedin.com/in/jonmgalante/" 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="text-gray-500 hover:text-blue-600 transition-colors"
+          className="text-blue-600 hover:text-blue-800 transition-colors"
         >
           <LinkedinIcon size={20} />
         </a>
