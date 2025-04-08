@@ -7,16 +7,18 @@ const Footer = () => {
 
   return (
     <footer className="py-8 text-sm text-gray-500">
-      <div className="container flex justify-between items-center">
-        <p>© {currentYear} Jon Galante</p>
-        <a 
-          href="https://www.linkedin.com/in/jonmgalante/" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="text-blue-600 hover:text-blue-800 transition-colors"
-        >
-          <LinkedinIcon size={20} />
-        </a>
+      <div className="container flex items-center justify-between">
+        <div className="flex items-center space-x-4">
+          <p>© {currentYear} Jon Galante</p>
+          <a 
+            href="https://www.linkedin.com/in/jonmgalante/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-blue-600 hover:text-blue-800 transition-colors"
+          >
+            <LinkedinIcon size={20} />
+          </a>
+        </div>
       </div>
     </footer>
   );
