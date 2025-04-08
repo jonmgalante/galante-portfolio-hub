@@ -52,6 +52,19 @@ interface PersonalInfo {
   books: BookData[];
 }
 
+const defaultInfo = {
+  introduction: "Thanks for visiting! I'm Jon, nice to meet you :) \n\nI've helped build some b2b startups, and along the way had lots of fun building sales teams, closing big deals with enterprises like Microsoft and Amazon, and helping some great founders build out GTM. \n\nMy wife Juliet and I live in NYC. Hit me up for coffee at jongalante@gmail.com or book time here.",
+  email: "jongalante@gmail.com",
+  twitter: "",
+  github: "",
+  interests: "A few of my favorite travel photos",
+  books: [
+    {name: "Book Title One", author: "Author Name", link: "https://example.com/book1"},
+    {name: "Book Title Two", author: "Author Name", link: "https://example.com/book2"},
+    {name: "Book Title Three", author: "Author Name", link: "https://example.com/book3"}
+  ]
+};
+
 const Index = () => {
   const [projects, setProjects] = useState<ProjectData[]>([]);
   const [writings, setWritings] = useState<WritingData[]>([]);
@@ -59,19 +72,6 @@ const Index = () => {
   const [personalInfo, setPersonalInfo] = useState<PersonalInfo | null>(null);
   const [loading, setLoading] = useState(true);
   const [dataInitialized, setDataInitialized] = useState(false);
-
-  const defaultInfo = {
-    introduction: "Thanks for visiting! \n\nI'm Jon, nice to meet you :) \n\nI've helped build some b2b startups, and along the way had lots of fun building sales teams, closing big deals with enterprises like Microsoft and Amazon, and helping some great founders build out GTM. \n\nMy wife Juliet and I live in NYC. Hit me up for coffee at jongalante@gmail.com or book time here.",
-    email: "jongalante@gmail.com",
-    twitter: "",
-    github: "",
-    interests: "A few of my favorite travel photos",
-    books: [
-      {name: "Book Title One", author: "Author Name", link: "https://example.com/book1"},
-      {name: "Book Title Two", author: "Author Name", link: "https://example.com/book2"},
-      {name: "Book Title Three", author: "Author Name", link: "https://example.com/book3"}
-    ]
-  };
 
   useEffect(() => {
     const initData = async () => {
