@@ -1,23 +1,18 @@
 
 import React from 'react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 const Header = () => {
-  const isMobile = useIsMobile();
-
   return (
     <header className="pt-8 pb-4">
       <div className="container">
-        <div className={`flex ${isMobile ? 'flex-col items-start' : 'justify-between items-center'}`}>
-          <h1 className={`text-3xl font-serif ${isMobile ? 'text-center w-full mb-2' : 'mb-2'}`}>
-            {isMobile ? "Jon Galante" : "Jon Galante"}
-          </h1>
-          <div className={`overflow-hidden ${isMobile ? 'w-full flex justify-center mt-2' : 'max-w-[16rem]'}`}>
+        <div className="flex justify-between items-center">
+          <h1 className="text-3xl font-serif mb-2">Jon Galante</h1>
+          <div className="max-w-[16rem] overflow-hidden">
             <img 
               src="/lovable-uploads/d18cf311-09ff-40c4-b74d-6d0fa1de54db.png" 
               alt="Jon Galante" 
-              className={`${isMobile ? 'w-[85%] h-auto object-cover' : 'w-full h-auto object-contain'}`}
+              className="w-full h-auto object-contain"
             />
           </div>
         </div>
@@ -27,3 +22,4 @@ const Header = () => {
 };
 
 export default Header;
+
