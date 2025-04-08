@@ -54,7 +54,7 @@ interface PersonalInfo {
 
 const defaultInfo = {
   introduction: "Thanks for visiting! I'm Jon, nice to meet you :)",
-  email: "jongalante@gmail.com",
+  email: "jonmgalante@gmail.com",
   twitter: "",
   github: "",
   interests: "A few of my favorite travel photos",

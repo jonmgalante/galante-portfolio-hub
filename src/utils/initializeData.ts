@@ -89,7 +89,7 @@ const defaultCompanies: CompanyData[] = [
 
 const defaultPersonalInfo = {
   introduction: "Thanks for visiting! I'm Jon, nice to meet you :)",
-  email: "jongalante@gmail.com",
+  email: "jonmgalante@gmail.com",
   twitter: "jongalante",
   github: "jongalante",
   interests: "I'm fascinated by artificial intelligence, quantum computing, and space exploration. In my free time, I enjoy hiking, reading, and playing chess. I'm currently learning about climate science and sustainable technologies.",
