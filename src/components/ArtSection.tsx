@@ -6,30 +6,10 @@ const ArtSection: React.FC = () => {
   // Sample art pieces with photos, names, and descriptions
   const artPieces = [
     { 
-      src: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
-      name: "Abstract Harmony", 
-      description: "A vibrant exploration of color and form" 
+      src: "https://firebasestorage.googleapis.com/v0/b/galante-portfolio.firebasestorage.app/o/art%2FIMG_4790.JPG?alt=media&token=2cee241e-3b54-419c-8ee3-10800629fd0c", 
+      name: "Tea Time", 
+      description: "Vanni Morandin" 
     },
-    { 
-      src: "https://images.unsplash.com/photo-1549887534-1541e9326642?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
-      name: "Urban Reflection", 
-      description: "Street art capturing city life" 
-    },
-    { 
-      src: "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
-      name: "Tranquil Waters", 
-      description: "Mixed media piece inspired by ocean movements" 
-    },
-    { 
-      src: "https://images.unsplash.com/photo-1536924940846-227afb31e2a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
-      name: "Colorful Chaos", 
-      description: "Experimental canvas with layered acrylics" 
-    },
-    { 
-      src: "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
-      name: "Geometric Dreams", 
-      description: "Precision and balance in modern design" 
-    }
   ];
 
   return (
