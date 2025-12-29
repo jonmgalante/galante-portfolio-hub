@@ -41,7 +41,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects, loading }) 
           />
           <Project
             title="Christmas Album"
-            description="recorded for Juliet (password protected haha)"
+            description="recorded for Juliet"
             link="https://averybearychristmas.com/"
           />
         </>

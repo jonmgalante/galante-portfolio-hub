@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "galante-portfolio"
-  }
+    "default": "galante-portfolio",
+    "prod": "galante-portfolio"
+  },
+  "targets": {},
+  "etags": {}
 }
