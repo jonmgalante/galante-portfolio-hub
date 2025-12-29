@@ -36,7 +36,7 @@ const Index = () => {
           <CompaniesSection companies={[]} loading={false} />
           {/* <WritingsSection writings={[]} loading={false} /> */}
 
-          {/*<ReadingSection />*/}
+          <ReadingSection />
 
           {/* These two still use Firestore */}
           <InterestsSection interests={defaultInfo.interests} />
