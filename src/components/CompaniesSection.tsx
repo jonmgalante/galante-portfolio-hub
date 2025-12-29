@@ -18,6 +18,7 @@ interface CompaniesSectionProps {
 const CompaniesSection: React.FC<CompaniesSectionProps> = ({ companies, loading }) => {
   // Default companies with the updated URLs
   const defaultCompanies = [
+    { name: "Wunder", role: "C&I solar development", url: "https://www.wunderpower.com" },
     { name: "Pathstream", role: "frontline workforce training", url: "https://pathstream.com" },
     { name: "Octane", role: "usage-based billing", description: "acquired by Stripe", url: "https://stripe.com" },
     { name: "CRS", role: "credit data API", url: "https://crscreditapi.com/" },

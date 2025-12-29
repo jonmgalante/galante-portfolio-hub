@@ -34,13 +34,13 @@ const Index = () => {
           {/* These components now rely on built-in fallback UI */}
           <ProjectsSection projects={[]} loading={false} />
           <CompaniesSection companies={[]} loading={false} />
-          <WritingsSection writings={[]} loading={false} />
+          {/* <WritingsSection writings={[]} loading={false} /> */}
 
-          <ReadingSection />
+          {/*<ReadingSection />*/}
 
           {/* These two still use Firestore */}
           <InterestsSection interests={defaultInfo.interests} />
-          <ArtSection />
+          {/*<ArtSection />*/}
         </div>
       </main>
 
