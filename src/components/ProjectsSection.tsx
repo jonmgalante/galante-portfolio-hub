@@ -35,14 +35,24 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects, loading }) 
       ) : (
         <>
           <Project
+            title="Meters"
+            description="rowing workout tracker"
+            link="https://apps.apple.com/us/app/meters-rowing-log/id6757317631"
+          />
+          <Project
             title="SouvieShelf"
             description="your personal museum from a life well-traveled"
-            link="https://souvieshelf.com/auth"
+            link="https://apps.apple.com/us/app/souvieshelf/id6756219216"
           />
           <Project
             title="Christmas Album"
             description="recorded for Juliet"
             link="https://averybearychristmas.com/"
+          />
+          <Project
+            title="The Rich Touch"
+            description="website for the family business"
+            link="https://www.therichtouch.com"
           />
         </>
       )}
