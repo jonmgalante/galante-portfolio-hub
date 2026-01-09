@@ -33,7 +33,7 @@ const ReadingLibrary: React.FC = () => {
           </div>
 
           <p className="text-muted-foreground max-w-2xl">
-            A roughly accurate catalogue of my library. 
+            A roughly accurate catalogue of my library, in no particular order. 
           </p>
 
           <div className="mt-6 max-w-md">
