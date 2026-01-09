@@ -33,7 +33,7 @@ const ReadingLibrary: React.FC = () => {
           </div>
 
           <p className="text-muted-foreground max-w-2xl">
-            A running list of books I’ve read. Titles link out to Amazon.
+            A roughly accurate catalogue of my library. 
           </p>
 
           <div className="mt-6 max-w-md">
