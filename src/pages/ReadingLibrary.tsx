@@ -46,7 +46,7 @@ const ReadingLibrary: React.FC = () => {
           </div>
 
           <div className="mt-6">
-            <ul className="divide-y">
+            <ul className="divide-y list-none pl-0 m-0">
               {filtered.map((b) => (
                 <li key={`${b.title}-${b.author}`} className="py-4">
                   <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
