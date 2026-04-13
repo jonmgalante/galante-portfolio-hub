@@ -35,6 +35,16 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects, loading }) 
       ) : (
         <>
           <Project
+            title="The Feast Guide"
+            description="track & share places you love"
+            link="https://apps.apple.com/us/app/the-feast-guide/id6761208798"
+          />
+          <Project
+            title="Account Atlas"
+            description="AI sales account planning"
+            link="https://account-atlas.com/"
+          />
+          <Project
             title="Meters"
             description="rowing workout tracker"
             link="https://apps.apple.com/us/app/meters-rowing-log/id6757317631"
